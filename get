@@ -1,0 +1,150 @@
+#!/bin/bash
+
+function get() {
+    echo "Processing $1"
+    mkdir -p tmp
+    cd tmp
+    wget --quiet "http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/$1.zip"
+}
+
+function convert() {
+    ogr2ogr -f geojson "$1.json" "$1.shp" 2> /dev/null
+    mv "$1.json" .. 2> /dev/null
+}
+
+function cleanup() {
+    cd ..
+    rm -r tmp/
+}
+
+function compress() {
+    if [ -f "$1.json" ]; then
+        7za a -mx9 -mmt2 "$1.7z" "$1.json" > /dev/null
+    fi
+}
+
+function f() {
+    get "$1/$2"
+    unzip "$2" &> /dev/null
+    convert $2
+    cleanup
+    compress $2
+}
+
+function cultural() {
+    mkdir -p "$1/cultural"
+    cd "$1/cultural"
+
+    f "$1/cultural" "ne_$1_admin_0_countries"
+    f "$1/cultural" "ne_$1_admin_0_countries_lakes"
+    f "$1/cultural" "ne_$1_admin_0_sovereignty"
+    f "$1/cultural" "ne_$1_admin_0_map_units"
+    f "$1/cultural" "ne_$1_admin_0_map_subunits"
+    f "$1/cultural" "ne_$1_admin_0_scale_rank"
+    f "$1/cultural" "ne_$1_admin_0_scale_rank_minor_islands"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_land"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_land"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_map_units"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_maritime_indicator"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_pacific_groupings"
+    f "$1/cultural" "ne_$1_admin_0_disputed_areas"
+    f "$1/cultural" "ne_$1_admin_0_disputed_areas_scale_rank_minor_islands"
+    f "$1/cultural" "ne_$1_admin_0_boundary_lines_disputed_areas"
+    f "$1/cultural" "ne_$1_admin_0_antarctic_claims"
+    f "$1/cultural" "ne_$1_admin_0_antarctic_claim_limit_lines"
+    f "$1/cultural" "ne_$1_admin_1_states_provinces"
+    f "$1/cultural" "ne_$1_admin_1_states_provinces_scale_rank"
+    f "$1/cultural" "ne_$1_admin_1_states_provinces_lakes"
+    f "$1/cultural" "ne_$1_admin_1_states_provinces_lines"
+    f "$1/cultural" "ne_$1_populated_places"
+    f "$1/cultural" "ne_$1_populated_places_simple"
+    f "$1/cultural" "ne_$1_roads"
+    f "$1/cultural" "ne_$1_roads_north_america"
+    f "$1/cultural" "ne_$1_railroads"
+    f "$1/cultural" "ne_$1_railroads_north_america"
+    f "$1/cultural" "ne_$1_airports"
+    f "$1/cultural" "ne_$1_ports"
+    f "$1/cultural" "ne_$1_urban_areas"
+    f "$1/cultural" "ne_$1_time_zones"
+    f "$1/cultural" "ne_$1_admin_0_label_points"
+    f "$1/cultural" "ne_$1_admin_0_seams"
+    f "$1/cultural" "ne_$1_admin_1_label_points"
+    f "$1/cultural" "ne_$1_admin_1_seams"
+
+    get "$1/cultural/ne_$1_parks_and_protected_lands"
+    unzip "ne_$1_parks_and_protected_lands" &> /dev/null
+    convert "ne_$1_parks_and_protected_lands_area"
+    convert "ne_$1_parks_and_protected_lands_line"
+    convert "ne_$1_parks_and_protected_lands_point"
+    convert "ne_$1_parks_and_protected_lands_scale_rank"
+    cleanup
+    compress "ne_$1_parks_and_protected_lands_area"
+    compress "ne_$1_parks_and_protected_lands_line"
+    compress "ne_$1_parks_and_protected_lands_point"
+    compress "ne_$1_parks_and_protected_lands_scale_rank"
+
+    cd ../..
+}
+
+function physical() {
+    mkdir -p "$1/physical"
+    cd "$1/physical"
+
+    f "$1/physical" "ne_$1_coastline"
+    f "$1/physical" "ne_$1_land"
+    f "$1/physical" "ne_$1_land_scale_rank"
+    f "$1/physical" "ne_$1_minor_islands"
+    f "$1/physical" "ne_$1_minor_islands_coastline"
+    f "$1/physical" "ne_$1_reefs"
+    f "$1/physical" "ne_$1_ocean"
+    f "$1/physical" "ne_$1_ocean_scale_rank"
+    f "$1/physical" "ne_$1_rivers_lake_centerlines"
+    f "$1/physical" "ne_$1_rivers_lake_centerlines_scale_rank"
+    f "$1/physical" "ne_$1_rivers_north_america"
+    f "$1/physical" "ne_$1_rivers_europe"
+    f "$1/physical" "ne_$1_lakes"
+    f "$1/physical" "ne_$1_lakes_historic"
+    f "$1/physical" "ne_$1_lakes_pluvial"
+    f "$1/physical" "ne_$1_lakes_north_america"
+    f "$1/physical" "ne_$1_lakes_europe"
+    f "$1/physical" "ne_$1_geography_regions_polys"
+    f "$1/physical" "ne_$1_geography_regions_points"
+    f "$1/physical" "ne_$1_geography_regions_elevation_points"
+    f "$1/physical" "ne_$1_geography_marine_polys"
+    f "$1/physical" "ne_$1_playas"
+    f "$1/physical" "ne_$1_antarctic_ice_shelves_polys"
+    f "$1/physical" "ne_$1_antarctic_ice_shelves_lines"
+    f "$1/physical" "ne_$1_glaciated_areas"
+    f "$1/physical" "ne_$1_bathymetry_L_0"
+    f "$1/physical" "ne_$1_bathymetry_K_200"
+    f "$1/physical" "ne_$1_bathymetry_J_1000"
+    f "$1/physical" "ne_$1_bathymetry_I_2000"
+    f "$1/physical" "ne_$1_bathymetry_H_3000"
+    f "$1/physical" "ne_$1_bathymetry_G_4000"
+    f "$1/physical" "ne_$1_bathymetry_F_5000"
+    f "$1/physical" "ne_$1_bathymetry_E_6000"
+    f "$1/physical" "ne_$1_bathymetry_C_8000"
+    f "$1/physical" "ne_$1_bathymetry_B_9000"
+    f "$1/physical" "ne_$1_bathymetry_A_10000"
+    f "$1/physical" "ne_$1_geographic_lines"
+    f "$1/physical" "ne_$1_graticules_1"
+    f "$1/physical" "ne_$1_graticules_5"
+    f "$1/physical" "ne_$1_graticules_10"
+    f "$1/physical" "ne_$1_graticules_15"
+    f "$1/physical" "ne_$1_graticules_20"
+    f "$1/physical" "ne_$1_graticules_30"
+    f "$1/physical" "ne_$1_wgs84_bounding_box"
+    f "$1/physical" "ne_$1_land_ocean_label_points"
+    f "$1/physical" "ne_$1_minor_islands_label_points"
+    f "$1/physical" "ne_$1_land_ocean_seams"
+
+    cd ../..
+}
+
+physical "10m"
+physical "50m"
+physical "110m"
+cultural "10m"
+cultural "50m"
+cultural "110m"
+

@@ -1,6 +1,5 @@
 {
 "type": "FeatureCollection",
-                                                                                
 "features": [
 { "type": "Feature", "properties": { "type": "Official", "scalerank": 8, "featurecla": "Antarctic claim limit line" }, "geometry": { "type": "LineString", "coordinates": [ [ -79.899999999999409, -90.0 ], [ -79.999999999999545, -90.0 ] ] } },
 { "type": "Feature", "properties": { "type": "Official", "scalerank": 8, "featurecla": "Antarctic claim limit line" }, "geometry": { "type": "LineString", "coordinates": [ [ -79.899999999999409, -90.0 ], [ -79.999999999999545, -90.0 ] ] } },

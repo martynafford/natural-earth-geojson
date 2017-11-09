@@ -47,13 +47,13 @@ An overview of the files, taken from the [features page](http://www.naturalearth
 
 ## Version
 
-Data used is [version 2.0.0](http://www.naturalearthdata.com/updates/mail.cgi?flavor=archive;list=updates;id=20121114001021) (released 2012-11-14), the latest as of 2017-01-05.
+Data used is [version 4.0.0](http://www.naturalearthdata.com/updates/mail.cgi?flavor=archive;list=updates;id=20171103122417) (released 2017-11-03), the latest as of 2017-11-03.
 
 ## Disclaimer
 
 The Natural Earth [disclaimer regarding disputed areas](http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/):
 
-> Natural Earth Vector draws boundaries of countries according to defacto status.
+> Natural Earth Vector draws boundaries of countries according to de facto status.
 > We show who actually controls the situation on the ground.
 > Please feel free to mashup our disputed area themes to match your particular political outlook.
 

@@ -1,6 +1,5 @@
 {
 "type": "FeatureCollection",
-                                                                                
 "features": [
 { "type": "Feature", "properties": { "unit_code": "GRBA", "unit_name": "Great Basin NP", "unit_type": "National Park", "nps_region": "Pacific West", "scalerank": 7, "featurecla": "National Park Service", "name": "Great Basin" }, "geometry": { "type": "Point", "coordinates": [ -114.244252082416324, 38.927150783327356 ] } },
 { "type": "Feature", "properties": { "unit_code": "MEVE", "unit_name": "Mesa Verde NP", "unit_type": "National Park", "nps_region": "Intermountain", "scalerank": 7, "featurecla": "National Park Service", "name": "Mesa Verde" }, "geometry": { "type": "Point", "coordinates": [ -108.447255012103824, 37.227158921348192 ] } },

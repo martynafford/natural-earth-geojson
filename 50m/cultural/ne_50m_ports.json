@@ -1,6 +1,5 @@
 {
 "type": "FeatureCollection",
-                                                                                
 "features": [
 { "type": "Feature", "properties": { "scalerank": 3, "featurecla": "Port", "name": "Oranjestad", "website": "www.arubaports.com", "natlscale": 75.0 }, "geometry": { "type": "Point", "coordinates": [ -70.03881037, 12.52 ] } },
 { "type": "Feature", "properties": { "scalerank": 3, "featurecla": "Port", "name": "Dubai", "website": "www.dpa.ae", "natlscale": 75.0 }, "geometry": { "type": "Point", "coordinates": [ 55.26931684, 25.26722222 ] } },

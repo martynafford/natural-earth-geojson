@@ -12,7 +12,7 @@ Debian provides the package [gdal-bin](https://packages.debian.org/gdal-bin).
 
 ## Data Themes
 
-An overview of the files, taken from the [features page](http://www.naturalearthdata.com/features).
+An overview of the files, taken from the [features page](http://www.naturalearthdata.com/features):
 
 ### Cultural
 
@@ -47,7 +47,7 @@ An overview of the files, taken from the [features page](http://www.naturalearth
 
 ## Version
 
-Data used is [version 4.0.0](http://www.naturalearthdata.com/updates/mail.cgi?flavor=archive;list=updates;id=20171103122417) (released 2017-11-03), the latest as of 2017-11-03.
+Data are the most recent as of 2024-01-24. Converted using GDAL 3.2.2 (2021-03-05).
 
 ## Licence
 
@@ -60,4 +60,3 @@ The Natural Earth [disclaimer regarding disputed areas](http://www.naturalearthd
 > Natural Earth Vector draws boundaries of countries according to de facto status.
 > We show who actually controls the situation on the ground.
 > Please feel free to mashup our disputed area themes to match your particular political outlook.
-

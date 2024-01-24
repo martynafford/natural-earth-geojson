@@ -49,6 +49,10 @@ An overview of the files, taken from the [features page](http://www.naturalearth
 
 Data used is [version 4.0.0](http://www.naturalearthdata.com/updates/mail.cgi?flavor=archive;list=updates;id=20171103122417) (released 2017-11-03), the latest as of 2017-11-03.
 
+## Licence
+
+Licensed under the [CC0](https://choosealicense.com/licenses/cc0-1.0/) licence.
+
 ## Disclaimer
 
 The Natural Earth [disclaimer regarding disputed areas](http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/):
